@@ -1,17 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-
-function Home() {
-  return <h1 className="text-4xl font-bold text-center mt-10">Bienvenido al sistema de inventarios</h1>;
-}
-
-function Inventory() {
-  return <h1 className="text-3xl text-center mt-10">Gestión de Inventarios</h1>;
-}
-
-function Reports() {
-  return <h1 className="text-3xl text-center mt-10">Reportes</h1>;
-}
+import Home from "./paginas/Home";
+import Inventory from "./paginas/Inventory";
+import Reports from "./paginas/Reports";
+import Login from "./paginas/Login";
+import Productos from "./paginas/Productos";
 
 function Navbar() {
   return (
@@ -21,7 +14,13 @@ function Navbar() {
           <Link to="/" className="hover:text-gray-200">Inicio</Link>
         </li>
         <li>
+          <Link to="/login" className="hover:text-gray-200">Iniciar Sesión</Link>
+        </li>
+        <li>
           <Link to="/inventory" className="hover:text-gray-200">Inventario</Link>
+        </li>
+        <li>
+          <Link to="/productos" className="hover:text-gray-200">Productos</Link>
         </li>
         <li>
           <Link to="/reports" className="hover:text-gray-200">Reportes</Link>
@@ -38,7 +37,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/inventory" element={<Inventory />} />
+          <Route path="/productos" element={<Productos />} />
           <Route path="/reports" element={<Reports />} />
         </Routes>
       </div>
